@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import "../typeorm/connection";
+import "../../container";
 
 import express from "express";
 
