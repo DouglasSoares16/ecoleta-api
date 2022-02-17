@@ -1,8 +1,9 @@
+import { IExampleRepository } from "@modules/example/repositories/IExampleRepository";
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../shared/errors/AppError";
-import { IExampleRepository } from "../../repositories/IExampleRepository";
+import { AppError } from "@shared/errors/AppError";
+
 import { ICreateExampleDTO } from "./ICreateExampleDTO";
 
 @injectable()

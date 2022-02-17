@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { CreateExampleController } from "../../../../modules/example/useCases/createExample/CreateExampleController";
+import { CreateExampleController } from "@modules/example/useCases/createExample/CreateExampleController";
 
 const createExampleController = new CreateExampleController();
 

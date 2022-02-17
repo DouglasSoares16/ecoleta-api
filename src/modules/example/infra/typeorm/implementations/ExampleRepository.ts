@@ -1,7 +1,7 @@
+import { IExampleRepository } from "@modules/example/repositories/IExampleRepository";
+import { ICreateExampleDTO } from "@modules/example/useCases/createExample/ICreateExampleDTO";
 import { getRepository, Repository } from "typeorm";
 
-import { IExampleRepository } from "../../../repositories/IExampleRepository";
-import { ICreateExampleDTO } from "../../../useCases/createExample/ICreateExampleDTO";
 import { Example } from "../entities/Example";
 
 class ExampleRepository implements IExampleRepository {

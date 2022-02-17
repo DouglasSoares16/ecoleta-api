@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import "express-async-errors";
 import "../typeorm/connection";
-import "../../container";
+import "@shared/container";
 
 import express from "express";
 
