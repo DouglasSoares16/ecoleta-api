@@ -1,9 +1,9 @@
-import { IExampleRepository } from "@modules/example/repositories/IExampleRepository";
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "@shared/errors/AppError";
+import { IExampleRepository } from "@modules/example/repositories/IExampleRepository";
 
+import { CreateExampleError } from "./CreateExampleError";
 import { ICreateExampleDTO } from "./ICreateExampleDTO";
 
 @injectable()
@@ -17,13 +17,13 @@ class CreateExampleUseCase {
     const emailAlreadyExists = await this.exampleRepository.findByEmail(email);
 
     if (emailAlreadyExists) {
-      throw new AppError("Email Already Exists!");
+      throw new CreateExampleError.EmailAlreadyExists();
     }
 
     const nameAlreadyExists = await this.exampleRepository.findByName(name);
 
     if (nameAlreadyExists) {
-      throw new AppError("Name Already Exists!");
+      throw new CreateExampleError.NameAlreadyExists();
     }
 
     const passwordHash = await hash(password, 10);
