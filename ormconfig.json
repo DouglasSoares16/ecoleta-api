@@ -3,7 +3,7 @@
   "port": 5432,
   "host": "localhost",
   "username": "postgres",
-  "password": "ignitepro",
+  "password": "ignite",
   "database": "setup_node",
   "migrations": [
     "./src/shared/infra/typeorm/migrations/*.ts"

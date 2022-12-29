@@ -2,7 +2,7 @@
 
 import { AppError } from "@shared/errors/AppError";
 
-export namespace CreateExampleError {
+export namespace ExamplesErrors {
   export class EmailAlreadyExists extends AppError {
     constructor() {
       super("Email Already Exists!");

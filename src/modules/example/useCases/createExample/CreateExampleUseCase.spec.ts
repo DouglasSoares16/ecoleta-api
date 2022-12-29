@@ -1,6 +1,6 @@
+import { ExamplesErrors } from "@modules/example/errors/ExamplesErrors";
 import { ExampleRepositoryInMemory } from "@modules/example/repositories/in-memory/ExampleRepositoryInMemory";
 
-import { CreateExampleError } from "./CreateExampleError";
 import { CreateExampleUseCase } from "./CreateExampleUseCase";
 
 let exampleRepositoryInMemory: ExampleRepositoryInMemory;
@@ -40,7 +40,7 @@ describe("UseCase: Create Example", () => {
     });
 
     await expect(createExampleUseCase.execute(data)).rejects.toEqual(
-      new CreateExampleError.EmailAlreadyExists()
+      new ExamplesErrors.EmailAlreadyExists()
     );
   });
 
@@ -58,7 +58,7 @@ describe("UseCase: Create Example", () => {
     });
 
     await expect(createExampleUseCase.execute(data)).rejects.toEqual(
-      new CreateExampleError.NameAlreadyExists()
+      new ExamplesErrors.NameAlreadyExists()
     );
   });
 });
