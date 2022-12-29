@@ -1,12 +1,12 @@
+import { IExampleDTO } from "@modules/example/dtos/IExampleDTO";
 import { Example } from "@modules/example/infra/typeorm/entities/Example";
-import { ICreateExampleDTO } from "@modules/example/useCases/createExample/ICreateExampleDTO";
 
 import { IExampleRepository } from "../IExampleRepository";
 
 class ExampleRepositoryInMemory implements IExampleRepository {
   repository: Example[] = [];
 
-  async create(data: ICreateExampleDTO): Promise<void> {
+  async create(data: IExampleDTO): Promise<void> {
     const user = new Example();
 
     Object.assign(user, data);

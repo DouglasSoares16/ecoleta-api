@@ -1,10 +1,9 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
+import { IExampleDTO } from "@modules/example/dtos/IExampleDTO";
 import { ExamplesErrors } from "@modules/example/errors/ExamplesErrors";
 import { IExampleRepository } from "@modules/example/repositories/IExampleRepository";
-
-import { ICreateExampleDTO } from "./ICreateExampleDTO";
 
 @injectable()
 class CreateExampleUseCase {
@@ -13,7 +12,7 @@ class CreateExampleUseCase {
     private exampleRepository: IExampleRepository
   ) {}
 
-  async execute({ email, name, password }: ICreateExampleDTO): Promise<void> {
+  async execute({ email, name, password }: IExampleDTO): Promise<void> {
     const emailAlreadyExists = await this.exampleRepository.findByEmail(email);
 
     if (emailAlreadyExists) {
