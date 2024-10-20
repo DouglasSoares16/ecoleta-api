@@ -6,6 +6,12 @@ import { IExampleRepository } from "../IExampleRepository";
 class ExampleRepositoryInMemory implements IExampleRepository {
   repository: Example[] = [];
 
+  async findAll(): Promise<Example[]> {
+    const example = this.repository;
+
+    return example;
+  }
+
   async create(data: IExampleDTO): Promise<void> {
     const user = new Example();
 

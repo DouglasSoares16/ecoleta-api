@@ -12,6 +12,14 @@ class ExampleRepository implements IExampleRepository {
     this.repository = getRepository(Example);
   }
 
+  async findAll(): Promise<Example[]> {
+    const examples = await this.repository.find({
+      select: ["id", "name", "email", "created_at", "updated_at"],
+    });
+
+    return examples;
+  }
+
   async findByEmail(email: string): Promise<Example> {
     const example = await this.repository.findOne({
       where: {

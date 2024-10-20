@@ -5,6 +5,7 @@ interface IExampleRepository {
   create(data: IExampleDTO): Promise<void>;
   findByEmail(email: string): Promise<Example>;
   findByName(name: string): Promise<Example>;
+  findAll(): Promise<Example[]>;
 }
 
 export { IExampleRepository };
