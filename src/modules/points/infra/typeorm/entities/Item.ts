@@ -2,10 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
+
+import { Point } from "./Point";
 
 @Entity("items")
 class Item {
@@ -17,6 +20,9 @@ class Item {
 
   @Column()
   image: string;
+
+  @ManyToMany(() => Point, (point) => point.items)
+  points: Point[];
 
   @CreateDateColumn()
   created_at: Date;
