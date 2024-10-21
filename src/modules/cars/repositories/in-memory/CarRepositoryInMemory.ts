@@ -6,6 +6,14 @@ import { ICarRepository } from "../ICarRepository";
 class CarRepositoryInMemory implements ICarRepository {
   repository: Car[] = [];
 
+  async findByName(name: string): Promise<Car> {
+    return this.repository.find((car) => car.name === name);
+  }
+
+  async findAll(): Promise<Car[]> {
+    return this.repository;
+  }
+
   async create(data: ICarDTO): Promise<void> {
     const car = new Car();
 
