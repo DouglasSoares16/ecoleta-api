@@ -8,7 +8,8 @@
     "start": "node ./dist/shared/infra/http/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules ./src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "test": "cross-env NODE_ENV=test && jest --runInBand --detectOpenHandles"
+    "test": "cross-env NODE_ENV=test && jest --runInBand --detectOpenHandles",
+    "seed:items": "ts-node-dev -r tsconfig-paths/register ./src/shared/infra/typeorm/seeds/items.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.3",
