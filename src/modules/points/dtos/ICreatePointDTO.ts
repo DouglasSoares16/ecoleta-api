@@ -1,3 +1,5 @@
+import { Item } from "../infra/typeorm/entities/Item";
+
 export interface ICreatePointDTO {
   name: string;
   email: string;
@@ -7,4 +9,5 @@ export interface ICreatePointDTO {
   uf: string;
   latitude: number;
   longitude: number;
+  items?: Item[];
 }

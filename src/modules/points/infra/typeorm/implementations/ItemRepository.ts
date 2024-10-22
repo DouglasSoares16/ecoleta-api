@@ -12,6 +12,12 @@ class ItemRepository implements IItemRepository {
     this.repository = getRepository(Item);
   }
 
+  async findByIds(items_ids: string[]): Promise<Item[]> {
+    const items = await this.repository.findByIds(items_ids);
+
+    return items;
+  }
+
   async findAll(): Promise<Item[]> {
     const items = await this.repository.find();
 
@@ -19,7 +25,9 @@ class ItemRepository implements IItemRepository {
   }
 
   async create(data: ICreateItemDTO): Promise<void> {
-    throw new Error("Method not implemented.");
+    const point = this.repository.create(data);
+
+    await this.repository.save(point);
   }
 }
 

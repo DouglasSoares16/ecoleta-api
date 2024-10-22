@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
   ManyToMany,
   PrimaryColumn,
   UpdateDateColumn,
@@ -40,6 +41,11 @@ class Point {
   longitude: number;
 
   @ManyToMany(() => Item, (item) => item.points)
+  @JoinTable({
+    name: "points_items",
+    joinColumns: [{ name: "point_id" }],
+    inverseJoinColumns: [{ name: "item_id" }],
+  })
   items: Item[];
 
   @CreateDateColumn()
