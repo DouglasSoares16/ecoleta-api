@@ -1,5 +1,3 @@
-import { v4 as uuid } from "uuid";
-
 import { Item } from "@modules/points/infra/typeorm/entities/Item";
 
 import createConnection from "../connection";
