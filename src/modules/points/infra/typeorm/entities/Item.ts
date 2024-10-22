@@ -1,3 +1,4 @@
+import { Expose } from "class-transformer";
 import {
   Column,
   CreateDateColumn,
@@ -29,6 +30,11 @@ class Item {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: "image_url" })
+  image_url(): string {
+    return `http://localhost:5500/uploads/${this.image}`;
+  }
 
   constructor() {
     if (!this.id) {

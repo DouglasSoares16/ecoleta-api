@@ -1,3 +1,4 @@
+import { classToPlain } from "class-transformer";
 import { inject, injectable } from "tsyringe";
 
 import { Item } from "@modules/points/infra/typeorm/entities/Item";
@@ -13,7 +14,9 @@ class ListItemsUseCase {
   async execute(): Promise<Item[]> {
     const items = await this.itemRepository.findAll();
 
-    return items;
+    const itemsSerialized = classToPlain(items) as Item[];
+
+    return itemsSerialized;
   }
 }
 
