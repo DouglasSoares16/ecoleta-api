@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { ListItemsController } from "@modules/points/useCases/ListItems/ListItemsController";
+import { ListItemsController } from "@modules/points/useCases/listItems/ListItemsController";
 
 const itemsRoutes = Router();
 
